@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Book Fest Poster</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg1: #FFEDD5; /* warm cream */
+      --bg2: #FFE4B5; /* soft orange */
+      --accent: #2B3140; /* deep navy */
+      --accent-2: #D1495B; /* coral */
+      --muted: #6B7280;
+      --card: #ffffff;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Montserrat,system-ui,Arial,sans-serif;background:linear-gradient(180deg,var(--bg1),var(--bg2));}
+
+    .poster{
+      width:900px; /* poster size for screen */
+      max-width:96vw;
+      margin:28px auto;
+      background:linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 15px 40px rgba(43,49,64,0.18);
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:22px;
+      align-items:center;
+      overflow:hidden;
+    }
+
+    /* Left area — big headline & blurb */
+    .left{
+      padding:16px 24px;
+    }
+    .headline{
+      font-family:'Playfair Display', serif;
+      font-size:66px;
+      line-height:0.88;
+      color:var(--accent);
+      margin:6px 0 8px 0;
+      letter-spacing:-1px;
+      text-transform:uppercase;
+    }
+    .subhead{
+      color:var(--accent-2);
+      font-weight:700;
+      font-size:22px;
+      margin-bottom:12px;
+      display:inline-block;
+      padding:6px 12px;
+      border-radius:999px;
+      background:rgba(209,73,91,0.08);
+    }
+    .description{
+      color:var(--muted);
+      font-size:16px;
+      margin-top:14px;
+      max-width:54ch;
+    }
+
+    /* Right area — details card */
+    .right{
+      background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.92));
+      border-radius:14px;
+      padding:20px;
+      box-shadow:0 6px 18px rgba(43,49,64,0.06);
+    }
+
+    .event-title{
+      font-size:20px;
+      font-weight:800;
+      color:var(--accent);
+      margin:2px 0 12px 0;
+      letter-spacing:0.4px;
+    }
+
+    .details{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .row{display:flex;align-items:center;gap:12px}
+    .label{
+      min-width:90px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .value{
+      color:var(--accent);
+      font-weight:700;
+      font-size:15px;
+    }
+
+    .address{font-size:14px;color:var(--muted);line-height:1.3}
+
+    .cta{
+      margin-top:14px;
+      display:flex;gap:12px;flex-wrap:wrap
+    }
+    .btn{
+      display:inline-block;padding:10px 14px;border-radius:10px;font-weight:700;text-decoration:none;font-size:14px;cursor:pointer;
+    }
+    .btn-primary{background:var(--accent);color:#fff}
+    .btn-outline{border:2px solid var(--accent);color:var(--accent);background:transparent}
+
+    /* Illustration area at bottom */
+    .illustration{
+      margin-top:16px;display:flex;gap:18px;align-items:flex-end;justify-content:flex-start
+    }
+    svg.book{width:190px;height:auto;filter:drop-shadow(0 12px 18px rgba(43,49,64,0.08));}
+
+    /* small footer */
+    .footer{margin-top:14px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;align-items:center}
+
+    /* Responsive */
+    @media (max-width:880px){
+      .poster{grid-template-columns:1fr;}
+      .headline{font-size:44px}
+      .right{order:3}
+    }
+  </style>
+</head>
+<body>
+  <main class="poster" role="main">
+    <section class="left">
+      <div class="subhead">Community • Authors • Workshops</div>
+      <h1 class="headline">Book Fest 2025</h1>
+      <p class="description">Join us for a day celebrating stories, ideas and conversation. Meet local and visiting authors, attend live readings, signings, storytelling sessions and hands-on workshops for readers of every age.</p>
+
+      <div class="illustration" aria-hidden="true">
+        <!-- Simple stack of books SVG -->
+        <svg class="book" viewBox="0 0 220 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="stack of books illustration">
+          <rect x="6" y="96" width="208" height="48" rx="6" fill="#D1495B"/>
+          <rect x="12" y="86" width="196" height="40" rx="6" fill="#188FA7"/>
+          <rect x="18" y="74" width="184" height="36" rx="6" fill="#F4A261"/>
+          <rect x="30" y="60" width="160" height="28" rx="6" fill="#2B3140"/>
+          <rect x="36" y="36" width="148" height="18" rx="6" fill="#FFD9A6"/>
+        </svg>
+      </div>
+
+      <div style="margin-top:8px;">
+        <a class="btn btn-primary" href="#details" onclick="document.getElementById('details').scrollIntoView({behavior:'smooth'})">See Event Details</a>
+        <a class="btn btn-outline" href="#" onclick="window.print();return false;">Print Poster</a>
+      </div>
+
+    </section>
+
+    <aside class="right" id="details" aria-labelledby="eventTitle">
+      <div class="event-title" id="eventTitle">Book Fest — Celebrate Reading</div>
+
+      <div class="details">
+        <div class="row"><div class="label">Date</div><div class="value">Saturday, May 25, 2025</div></div>
+        <div class="row"><div class="label">Time</div><div class="value">10:00 AM — 6:00 PM</div></div>
+        <div class="row"><div class="label">Venue</div><div class="value">Central Library, Main Hall</div></div>
+        <div class="row"><div class="label">Address</div><div class="address">123 Book Street, Knowledge Park, Cityname — 560001</div></div>
+        <div class="row"><div class="label">Tickets</div><div class="value">Free • Registration recommended</div></div>
+        <div class="row"><div class="label">Register</div><div class="value"><a href="#" style="text-decoration:underline;color:var(--accent)">bookfest.example.com/register</a></div></div>
+
+        <div class="row"><div class="label">Contact</div><div class="value">+91 98765 43210</div></div>
+
+        <div class="row" style="margin-top:8px"><div class="label">Highlights</div>
+          <div style="font-size:14px;color:var(--muted)">Author talks • Children's corner • Book signing • Workshops • Food stalls</div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div>Organised by: City Library Trust</div>
+        <div style="text-align:right">Sponsored by: Local Bookshop • Friends of the Library</div>
+      </div>
+    </aside>
+
+  </main>
+
+  <script>
+    // Simple JS to make date/time editable from URL params (optional)
+    (function(){
+      const params = new URLSearchParams(location.search);
+      const date = params.get('date');
+      if(date){ document.querySelector('.details .row .value').textContent = date; }
+    })();
+  </script>
+</body>
+</html>
